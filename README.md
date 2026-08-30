@@ -38,7 +38,7 @@ This section is intentionally precise, in the spirit of our own project guide: *
 - **Live evidence hashing & tamper detection** (`utils/crypto.ts`, `components/EvidenceVault.tsx`) — genuinely functional: computes real SHA-256 hashes via the browser's Web Crypto API, lets you edit an evidence payload live, and instantly shows a hash mismatch if the content is tampered. This is the strongest working demo in the prototype today.
 - **Campaign Evolution View** — renders a visual multi-stage timeline of how a campaign shifts channels over time (SMS → WhatsApp → QR/APK), pulled from curated demo campaign data.
 - **4 detailed synthetic demo campaigns** (`data/mockData.ts`) — hand-authored, realistic Indian scam scenarios (SBI/YONO KYC smishing, DISCOM disconnection extortion, customs/digital-arrest extortion, WFH task-fraud) used to power every demo view.
-### 🚧 Not Yet Implemented (Planned per Project Guide)
+### Not Yet Implemented (Planned per Project Guide)
  
 - **Backend / API** — no FastAPI service yet; everything currently runs client-side in the browser
 - **Real campaign correlation** — `matchToCampaign()` currently routes input to one of 4 pre-written demo campaigns via keyword matching. This simulates correlation for demo purposes; it is **not** yet the graph-based entity correlation (Neo4j) described in our architecture
