@@ -1,11 +1,8 @@
-
-
-Readme · MD
 # TRACE — Threat Relationship Analysis & Cryptographic Evidence
  
 **Smart India Hackathon 2026 · Team COGNIX**
  
-TRACE does not merely ask *"is this a scam?"* — it asks *"is this connected to a larger attack, how is that attack evolving, and can we prove what happened?"*
+TRACE is not your old scam detection software it asks questions like *"is this scam connected to a larger attack, how is that attack evolving, and can we prove what happened?"*
  
 🔗 **Live demo:** https://trace-one-rosy.vercel.app/
  
@@ -26,11 +23,11 @@ Most scam-detection tools examine one message, URL, or QR code at a time. That c
  
 ---
  
-## ⚠️ Current Prototype Status — What Actually Works Today
+## Current Prototype Status — What Actually Works Today
  
 This section is intentionally precise, in the spirit of our own project guide: *"present prototype performance honestly."* Everything below is implemented and demoable right now, entirely client-side (no backend deployed yet).
  
-### ✅ Working
+### Working
  
 - **Explainable threat scoring** (`utils/detectionEngine.ts`) — a real, functioning rule-based engine that:
   - Extracts IOCs via regex: URLs/domains, phone numbers (Indian + international formats), IP addresses, emails
@@ -129,8 +126,3 @@ Three focused demos that show Detect → Connect → Prove:
 ## Team
  
 **COGNIX** — Smart India Hackathon 2026
- 
-## License
- 
-[Add a license, e.g. MIT, if you plan to open-source this]
- 
