@@ -1,4 +1,4 @@
-# TRACE — Threat Relationship Analysis & Cryptographic Evidence
+# TRACE (Threat Relationship Analysis & Cryptographic Evidence)
  
 **Smart India Hackathon 2026 · Team COGNIX**
  
@@ -29,23 +29,23 @@ This section is intentionally precise, in the spirit of our own project guide: *
  
 ### Working
  
-- **Explainable threat scoring** (`utils/detectionEngine.ts`) — a real, functioning rule-based engine that:
+- **Explainable threat scoring** (`utils/detectionEngine.ts`) : a real, functioning rule-based engine that:
   - Extracts IOCs via regex: URLs/domains, phone numbers (Indian + international formats), IP addresses, emails
   - Matches text against known brand-impersonation keywords (SBI/YONO, HDFC, ICICI, DISCOM, FedEx, income tax, etc.)
   - Detects urgency/intimidation language patterns
   - Flags suspicious TLDs and typosquatted financial-brand domains
   - Combines four signal categories (language, cyber/URL, behaviour, collective) into a weighted 0–100 composite threat score, with human-readable reasons for the score
-- **Live evidence hashing & tamper detection** (`utils/crypto.ts`, `components/EvidenceVault.tsx`) — genuinely functional: computes real SHA-256 hashes via the browser's Web Crypto API, lets you edit an evidence payload live, and instantly shows a hash mismatch if the content is tampered. This is the strongest working demo in the prototype today.
-- **Campaign Evolution View** — renders a visual multi-stage timeline of how a campaign shifts channels over time (SMS → WhatsApp → QR/APK), pulled from curated demo campaign data.
-- **4 detailed synthetic demo campaigns** (`data/mockData.ts`) — hand-authored, realistic Indian scam scenarios (SBI/YONO KYC smishing, DISCOM disconnection extortion, customs/digital-arrest extortion, WFH task-fraud) used to power every demo view.
+- **Live evidence hashing & tamper detection** (`utils/crypto.ts`, `components/EvidenceVault.tsx`) : genuinely functional: computes real SHA-256 hashes via the browser's Web Crypto API, lets you edit an evidence payload live, and instantly shows a hash mismatch if the content is tampered. This is the strongest working demo in the prototype today.
+- **Campaign Evolution View** : renders a visual multi-stage timeline of how a campaign shifts channels over time (SMS → WhatsApp → QR/APK), pulled from curated demo campaign data.
+- **4 detailed synthetic demo campaigns** (`data/mockData.ts`) : hand-authored, realistic Indian scam scenarios (SBI/YONO KYC smishing, DISCOM disconnection extortion, customs/digital-arrest extortion, WFH task-fraud) used to power every demo view.
 ### Not Yet Implemented (Planned per Project Guide)
  
-- **Backend / API** — no FastAPI service yet; everything currently runs client-side in the browser
-- **Real campaign correlation** — `matchToCampaign()` currently routes input to one of 4 pre-written demo campaigns via keyword matching. This simulates correlation for demo purposes; it is **not** yet the graph-based entity correlation (Neo4j) described in our architecture
-- **Blockchain anchoring** — `generateTxHash()` / `generateMerkleRoot()` currently generate simulated hex values for demo visuals; there is no real blockchain or smart contract integration yet
-- **OCR / QR decoding** — screenshot and QR image ingestion pipeline not yet built
-- **Persistent storage** — no database (PostgreSQL/Neo4j); all data is static and resets on reload
-- **ML / semantic similarity** — current scoring is keyword/heuristic-based, not a trained classifier or sentence-transformer model
+- **Backend / API** : no FastAPI service yet; everything currently runs client-side in the browser
+- **Real campaign correlation** : `matchToCampaign()` currently routes input to one of 4 pre-written demo campaigns via keyword matching. This simulates correlation for demo purposes; it is **not** yet the graph-based entity correlation (Neo4j) described in our architecture
+- **Blockchain anchoring** : `generateTxHash()` / `generateMerkleRoot()` currently generate simulated hex values for demo visuals; there is no real blockchain or smart contract integration yet
+- **OCR / QR decoding** : screenshot and QR image ingestion pipeline not yet built
+- **Persistent storage** : no database (PostgreSQL/Neo4j); all data is static and resets on reload
+- **ML / semantic similarity** : current scoring is keyword/heuristic-based, not a trained classifier or sentence-transformer model
 ---
  
 ## Getting Started
@@ -110,9 +110,9 @@ trace/
  
 Three focused demos that show Detect → Connect → Prove:
  
-1. **Detection** — Submit a fake bank/KYC message; show IOC extraction, risk score, and explanation.
-2. **Campaign Discovery** — Submit a few deliberately varied but related incidents; show them mapping to a single campaign.
-3. **Evidence Tampering** — Take an anchored evidence hash, modify the payload live in the Evidence Vault, and show verification failing in real time.
+1. **Detection** : Submit a fake bank/KYC message; show IOC extraction, risk score, and explanation.
+2. **Campaign Discovery** : Submit a few deliberately varied but related incidents; show them mapping to a single campaign.
+3. **Evidence Tampering** : Take an anchored evidence hash, modify the payload live in the Evidence Vault, and show verification failing in real time.
 ## Roadmap
  
 - [ ] FastAPI backend + PostgreSQL persistence
