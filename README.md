@@ -23,7 +23,7 @@ Most scam-detection tools examine one message, URL, or QR code at a time. That c
  
 ---
  
-## Current Prototype Status — What Actually Works Today
+## Current Prototype Status and What Actually Works Today
  
 This section is intentionally precise, in the spirit of our own project guide: *"present prototype performance honestly."* Everything below is implemented and demoable right now, entirely client-side (no backend deployed yet).
  
