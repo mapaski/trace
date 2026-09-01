@@ -33,7 +33,6 @@ export type ActiveView = {
 interface NavbarProps {
   currentView: ActiveView;
   onChangeView: (view: Partial<ActiveView>) => void;
-  onOpenJuryDemo: () => void;
   onOpenReportModal: () => void;
   stats: {
     activeCampaigns: number;
@@ -46,7 +45,6 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({
   currentView,
   onChangeView,
-  onOpenJuryDemo,
   onOpenReportModal,
   stats,
 }) => {
@@ -105,16 +103,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Quick Tools */}
         <div className="flex items-center gap-2.5">
-          <button
-            id="btn-jury-demos"
-            onClick={onOpenJuryDemo}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-xs font-semibold transition-all cursor-pointer shadow-xs"
-            title="Launch the continuous 120-second end-to-end evaluation demo"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-            <span>Single 120s Demo</span>
-          </button>
-
           {!isCitizen && (
             <button
               id="btn-generate-dossier"

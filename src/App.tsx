@@ -6,7 +6,6 @@ import { ThreatGraphCanvas } from './components/ThreatGraphCanvas';
 import { CampaignEvolutionView } from './components/CampaignEvolutionView';
 import { EvidenceVault } from './components/EvidenceVault';
 import { ReportDossierModal } from './components/ReportDossierModal';
-import { SingleDemoController, SingleDemoStep } from './components/SingleDemoController';
 import {
   INITIAL_CAMPAIGNS,
   INITIAL_GRAPH_EDGES,
@@ -29,7 +28,6 @@ export default function App() {
   const [graphEdges, setGraphEdges] = useState<GraphEdge[]>(INITIAL_GRAPH_EDGES);
 
   const [selectedCampaignForEvolution, setSelectedCampaignForEvolution] = useState<string>('CAMP-2841');
-  const [isJuryModalOpen, setIsJuryModalOpen] = useState<boolean>(false);
   const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
@@ -85,15 +83,6 @@ export default function App() {
     showToast(`✓ Ingested & Anchored: ${newIncident.id} correlated to ${newIncident.campaignId || 'Campaign'}`);
   };
 
-  // Navigate views for the unified single demo
-  const handleNavigateFromDemo = (target: SingleDemoStep['targetView']) => {
-    setCurrentView({
-      role: target.role,
-      citizenTab: target.citizenTab || 'scanner',
-      investigatorTab: target.investigatorTab || 'campaigns_stream',
-    });
-  };
-
   const handleSelectCampaignForGraph = (campaignId: string) => {
     setCurrentView({
       role: 'investigator',
@@ -118,7 +107,6 @@ export default function App() {
       <Navbar
         currentView={currentView}
         onChangeView={handleChangeView}
-        onOpenJuryDemo={() => setIsJuryModalOpen(true)}
         onOpenReportModal={() => setIsReportModalOpen(true)}
         stats={{
           activeCampaigns: campaigns.length,
@@ -186,13 +174,6 @@ export default function App() {
         onClose={() => setIsReportModalOpen(false)}
         campaigns={campaigns}
         incidents={incidents}
-      />
-
-      <SingleDemoController
-        isOpen={isJuryModalOpen}
-        onClose={() => setIsJuryModalOpen(false)}
-        onNavigateView={handleNavigateFromDemo}
-        onOpenReportModal={() => setIsReportModalOpen(true)}
       />
 
       {/* Footer */}
